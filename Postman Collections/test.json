@@ -1,0 +1,108 @@
+{
+	"info": {
+		"_postman_id": "f88cae6e-9a80-43c3-b4d5-92bc14a4dfec",
+		"name": "Sonarqube",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "New Analysis",
+			"id": "eff3d88b-74d4-463d-a46b-e0fdc79e1016",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "noauth"
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-sonarqube-project",
+						"value": "{{PROJECT-ANALYSED}}",
+						"type": "default"
+					},
+					{
+						"key": "X-Sonar-Webhook-HMAC-SHA256",
+						"value": "[B@63a0ae87",
+						"type": "default"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": " {\"branch\":{\"name\":\"master\"}}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "https://sonarqube-scanner-service-nodejs-dev.apps.cfzcea.dev.desjardins.com/new-analysis"
+			},
+			"response": []
+		},
+		{
+			"name": "GetELEMENT from Sonar",
+			"id": "c1344a67-9cf7-46d6-8f23-83989bde8a3a",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": ""
+			},
+			"response": []
+		},
+		{
+			"name": "All projects",
+			"id": "098222c1-1377-4911-9cb4-d5a72fc55828",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": ""
+			},
+			"response": []
+		},
+		{
+			"name": "All branches",
+			"id": "1b879c05-ec08-458c-a21b-27e711bcbfe3",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": ""
+			},
+			"response": []
+		},
+		{
+			"name": "New Analysis localhost",
+			"id": "de593ed8-e42f-49b8-ae8a-cab7a8a3cef8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "x-sonarqube-project",
+						"value": "com.desjardins.netops:automation-platform",
+						"type": "default"
+					},
+					{
+						"key": "X-Sonar-Webhook-HMAC-SHA256",
+						"value": "[B@63a0ae87",
+						"type": "default"
+					}
+				],
+				"url": "http://localhost:3000/new-analysis"
+			},
+			"response": []
+		}
+	]
+}
